@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Code Quiz</title>
 </head>
 <body>
-    <div class="grid-container">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGphmgJYH43yvmTcXKjwTO6yG7O9y9QkVUIQ&usqp=CAU" width="30" height="30" class="d-inline-block align-top rounded" alt="" loading="lazy">
+            Code Quiz
+        </a>
+    </nav>
+    <div class="container">
+        <div class="row">
+        <div class="col">
+            High Scores
+        </div>
+        <div class="col-6" id="welcome-page">
+            <h3 class="font-weight-light">Welcome to</h3>
+            <h1>Code Quiz</h1>
+            <h4 class="font-weight-light">Click the button below to start</h4>
+            <button type="button" class="btn btn-lg btn-block btn-warning" id="start-button">Begin Quiz</button>
+        </div>
+        <div class="col-6" id="question-page">
+            <h2 class="font-weight-light" id="question-header">Question </h2>
+            
+            <div class="font-weight-bold" id="multiple-choice">Multiple-choice</div>
+
+        </div>
+        <div class="col">
+            Timer
+        </div>
+        </div>
+    </div>
+    <!-- <div class="grid-container">
         <div class="grid-item">
             High Scores
 
@@ -18,6 +47,7 @@
                 <br>
                 <button id="welcome-button">Start</button>
             </div>
+
             <div id="question-page">
                 <br>
                 <span id="question-header"></span>
@@ -25,6 +55,7 @@
 
                 </ul>
             </div>
+
             <div id="initials">
                 Enter your initials
             </div>
@@ -34,12 +65,15 @@
             <br>
             Correct: <span id="points">___</span>/10
         </div>  
-      </div>
+    </div> -->
 
 
 
 
 
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
