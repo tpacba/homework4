@@ -5,6 +5,8 @@ var questionHeader = document.querySelector("#question-header");
 var multipleChoice = document.querySelector("#multiple-choice");
 var timeColumn = document.querySelector("#time-column");
 var time = document.querySelector("#timer");
+var finalPage = document.querySelector("#final-page");
+var score = document.querySelector("#score");
 
 var correct = 0;
 var timer = 100;
@@ -17,6 +19,14 @@ function start() {
     timeColumn.style.display = "block";
     startTime();
     q1();
+}
+
+function final() {
+    questionPage.style.display = "none";
+    timeColumn.style.display = "none";
+    finalPage.style.display = "block";
+
+    score.innerHTML = correct;
 }
 
 var question1 = {

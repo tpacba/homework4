@@ -10,6 +10,10 @@
     display: none;
 }
 
+#final-page {
+    display: none;
+}
+
 #time-column {
     display: none;
 }
