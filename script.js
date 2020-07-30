@@ -35,8 +35,6 @@ for (var i = 0; i < highscores.name.length; i++) {
     scoresColumn.appendChild(lists);
 }
 
-
-
 startButton.addEventListener("click", start);
 
 function start() {
