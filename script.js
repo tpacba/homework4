@@ -102,7 +102,6 @@ function q1() {
     var next = multipleChoice.getElementsByClassName("btn")[i];
     next.addEventListener("click", q2);
     }
-    
 }
 
 function q2() {
@@ -113,31 +112,10 @@ function q2() {
     wronganswer(question2.a2);
     rightanswer(question2.a3);
 
-    function rightanswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            correct++;
-            alert("Correct! You got 1 point.")
-            q3();
-        })
-    }
-    
-    function wronganswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            timer -= 5;
-            alert("Wrong! You've lost 5 seconds.");
-            q3();
-        })
-    }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", q3);
+        }
 }
 
 function q3() {
@@ -148,31 +126,10 @@ function q3() {
     wronganswer(question3.a2);
     wronganswer(question3.a3);
 
-    function rightanswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            correct++;
-            alert("Correct! You got 1 point.")
-            q4();
-        })
-    }
-    
-    function wronganswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            timer -= 5;
-            alert("Wrong! You've lost 5 seconds.");
-            q4();
-        })
-    }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", q4);
+        }
 }
 
 function q4() {
@@ -183,31 +140,10 @@ function q4() {
     wronganswer(question4.a2);
     rightanswer(question4.a3);
 
-    function rightanswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            correct++;
-            alert("Correct! You got 1 point.")
-            q5();
-        })
-    }
-    
-    function wronganswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            timer -= 5;
-            alert("Wrong! You've lost 5 seconds.");
-            q5();
-        })
-    }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", q5);
+        }
 }
 
 function q5() {
@@ -218,31 +154,10 @@ function q5() {
     rightanswer(question5.a2);
     wronganswer(question5.a3);
 
-    function rightanswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            correct++;
-            alert("Correct! You got 1 point.")
-            final();
-        })
-    }
-    
-    function wronganswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            timer -= 5;
-            alert("Wrong! You've lost 5 seconds.");
-            final();
-        })
-    }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", final);
+        }
 }
 
 function startTime() {
