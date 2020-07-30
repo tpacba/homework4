@@ -33,6 +33,27 @@ var question2 = {
     a3: "<script>"
 }
 
+var question3 = {
+    q: "Where is the correct place to insert a JavaScript?",
+    a1: "The <body> section",
+    a2: "Both the <head> section and the <body> section are correct",
+    a3: "The <head> section"
+}
+
+var question4 = {
+    q: "How do you write 'Hello World' in an alert box?",
+    a1: "msgBox('Hello World');",
+    a2: "alertBox('Hello World');",
+    a3: "alert('Hello World');"
+}
+
+var question5 = {
+    q: "How do you create a function in JavaScript?",
+    a1: "function:myFunction()",
+    a2: "function myFunction()",
+    a3: "function = myFunction()"
+}
+
 function q1() {
     questionHeader.innerHTML = question1.q;
 
@@ -102,6 +123,111 @@ function q2() {
     }
 }
 
+function q3() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
+
+    rightanswer(question3.a1);
+    wronganswer(question3.a2);
+    wronganswer(question3.a3);
+
+    function rightanswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            correct++;
+            alert("Correct! You got 1 point.")
+            q4();
+        })
+    }
+    
+    function wronganswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            timer -= 5;
+            alert("Wrong! You've lost 5 seconds.");
+            q4();
+        })
+    }
+}
+
+function q4() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
+
+    wronganswer(question4.a1);
+    wronganswer(question4.a2);
+    rightanswer(question4.a3);
+
+    function rightanswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            correct++;
+            alert("Correct! You got 1 point.")
+            q5();
+        })
+    }
+    
+    function wronganswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            timer -= 5;
+            alert("Wrong! You've lost 5 seconds.");
+            q5();
+        })
+    }
+}
+
+function q5() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
+
+    wronganswer(question5.a1);
+    rightanswer(question5.a2);
+    wronganswer(question5.a3);
+
+    function rightanswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            correct++;
+            alert("Correct! You got 1 point.")
+            final();
+        })
+    }
+    
+    function wronganswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            timer -= 5;
+            alert("Wrong! You've lost 5 seconds.");
+            final();
+        })
+    }
+}
+
 function startTime() {
     setInterval(function() {
         if (timer <= 0) {
@@ -112,71 +238,3 @@ function startTime() {
         }
     }, 1000)
 }
-// var startButton = document.querySelector("#welcome-button");
-// var welcomePage = document.querySelector("#welcome-page");
-// var questionPage = document.querySelector("#question-page");
-// var questionHead = document.querySelector("#question-header");
-// var answers = document.querySelector("#multiple-choice");
-// var points = document.querySelector("#points");
-
-// var correct = 0;
-
-// var listQuestions = {
-//     q0 : "Question 1: Are cats dogs?",
-//     q1 : "Question 2: Are dogs cats?",
-//     q2 : "Question 3: Are cats cats?",
-//     q3 : "Question 4: Are dogs dogs?"
-// };
-
-// var listAnswers = ["Yes", "No", "Maybe"];
-
-// function start() {
-//     startTimer();
-//     welcomePage.style.display = "none";
-//     questionPage.style.display = "block";
-//     q0();
-// };
-
-// function q0() {
-//     questionHead.textContent = listQuestions.q0;
-//     points.textContent = correct;
-//     for (var i = 0; i < listAnswers.length; i++) {
-//         var list = document.createElement("button");
-//         list.textContent = listAnswers[i];
-//         list.setAttribute("data-index", i);
-//         answers.appendChild(list);
-//     }
-    
-//     answers.children[0].addEventListener("click", function() {
-//         timer -= 5;
-//         alert("wrong! You lose 5 seconds.");
-//     })
-//     answers.children[1].addEventListener("click", function() {
-//         correct++;
-//         alert("correct!");
-//     })
-//     answers.children[2].addEventListener("click", function() {
-//         timer -= 5;
-//         alert("wrong! You lose 5 seconds.");
-//     })
-// }
-
-
-
-
-
-// var timer = 100;
-
-// function startTimer() {
-    
-//     setInterval(function() {
-//     if (timer <= 0) {
-//         return;
-//     } else {
-//         timer--;
-//         document.getElementById("timer").textContent = timer;
-//     };
-// }, 1000);
-// };
-
-// startButton.addEventListener("click", start);
