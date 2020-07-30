@@ -19,13 +19,52 @@ var question1 = {
     a3: "Home Tool Markup Language"
 }
 
+var question2 = {
+    q: "Inside which HTML element do we put the JavaScript?",
+    a1: "<javascript>",
+    a2: "<js>",
+    a3: "<script>"
+}
+
 function q1() {
     questionHeader.innerHTML = question1.q;
+
     var a1 = document.createElement("button");
     var a2 = document.createElement("button");
     var a3 = document.createElement("button");
-
     
+    a1.textContent = question1.a1;
+    a2.textContent = question1.a2;
+    a3.textContent = question1.a3;
+
+    a1.className = "btn btn-warning";
+    a2.className = "btn btn-warning";
+    a3.className = "btn btn-warning";
+
+    multipleChoice.appendChild(document.createElement("hr"));
+    multipleChoice.appendChild(a1);
+    multipleChoice.appendChild(document.createElement("hr"));
+    multipleChoice.appendChild(a2);
+    multipleChoice.appendChild(document.createElement("hr"));
+    multipleChoice.appendChild(a3);
+
+    a1.addEventListener("click", function() {
+        alert("Correct!")
+        q2();
+    })
+    a2.addEventListener("click", function() {
+        alert("Wrong!")
+        q2();
+    })
+    a3.addEventListener("click", function() {
+        alert("Wrong!")
+        q2();
+    })
+}
+
+function q2() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
 }
 
 
