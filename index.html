@@ -19,18 +19,6 @@
         <div class="col">
             <ul class="list-group" id="scores-column">
                 <h3>High Scores</h3>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cras justo odio
-                    <span class="badge badge-primary badge-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Dapibus ac facilisis in
-                    <span class="badge badge-primary badge-pill">2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Morbi leo risus
-                    <span class="badge badge-primary badge-pill">1</span>
-                </li>
             </ul>
         </div>
         <div class="col-6" id="welcome-page">
@@ -44,23 +32,22 @@
             <div class="font-weight-bold" id="multiple-choice"></div>
         </div>
         <div class="col-6" id="final-page">
-            <h3>Congrats you scored <span id="score"></span> points.</h3>
+            <h3>You scored <span id="score"></span> points.</h3>
             <p>Enter your initials below to record your high score!</p>
             <form>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Enter your initials">
+                        <input  placeholder="Enter your initials" id="name-input">
                     </div>
                     <div class="col">
-                        <button type="submit" class="btn btn-warning">Submit</button>
+                        <button  id="submit-button">Submit</button>
                     </div>
                 </div>
             </form>
-
         </div>
         <div class="col">
             <p id="time-column">
-                You have <span id="timer">100</span> seconds left.
+                You have <span id="timer">50</span> seconds left.
             </p>
         </div>
         </div>
