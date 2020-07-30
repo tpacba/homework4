@@ -10,7 +10,7 @@ var score = document.querySelector("#score");
 var scoresColumn = document.querySelector("#scores-column");
 
 var correct = 0;
-var timer = 100;
+var timer = 10;
 
 startButton.addEventListener("click", start);
 
@@ -163,7 +163,7 @@ function q5() {
 function startTime() {
     setInterval(function() {
         if (timer <= 0) {
-            return;
+            final();
         } else {
             timer--;
             time.innerHTML = timer;
