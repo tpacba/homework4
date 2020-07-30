@@ -3,12 +3,19 @@ var questionPage = document.querySelector("#question-page");
 var startButton = document.querySelector("#start-button");
 var questionHeader = document.querySelector("#question-header");
 var multipleChoice = document.querySelector("#multiple-choice");
+var timeColumn = document.querySelector("#time-column");
+var time = document.querySelector("#timer");
+
+var correct = 0;
+var timer = 100;
 
 startButton.addEventListener("click", start);
 
 function start() {
     welcomePage.style.display = "none";
     questionPage.style.display = "block";
+    timeColumn.style.display = "block";
+    startTime();
     q1();
 }
 
@@ -29,45 +36,82 @@ var question2 = {
 function q1() {
     questionHeader.innerHTML = question1.q;
 
-    var a1 = document.createElement("button");
-    var a2 = document.createElement("button");
-    var a3 = document.createElement("button");
+    rightanswer(question1.a1);
+    wronganswer(question1.a2);
+    wronganswer(question1.a3);
+
+    function rightanswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            correct++;
+            alert("Correct! You got 1 point.")
+            q2();
+        })
+    }
     
-    a1.textContent = question1.a1;
-    a2.textContent = question1.a2;
-    a3.textContent = question1.a3;
-
-    a1.className = "btn btn-warning";
-    a2.className = "btn btn-warning";
-    a3.className = "btn btn-warning";
-
-    multipleChoice.appendChild(document.createElement("hr"));
-    multipleChoice.appendChild(a1);
-    multipleChoice.appendChild(document.createElement("hr"));
-    multipleChoice.appendChild(a2);
-    multipleChoice.appendChild(document.createElement("hr"));
-    multipleChoice.appendChild(a3);
-
-    a1.addEventListener("click", function() {
-        alert("Correct!")
-        q2();
-    })
-    a2.addEventListener("click", function() {
-        alert("Wrong!")
-        q2();
-    })
-    a3.addEventListener("click", function() {
-        alert("Wrong!")
-        q2();
-    })
+    function wronganswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            timer -= 5;
+            alert("Wrong! You've lost 5 seconds.");
+            q2();
+        })
+    }
 }
 
 function q2() {
     questionHeader.innerHTML = question2.q;
     multipleChoice.innerHTML = "";
+
+    wronganswer(question2.a1);
+    wronganswer(question2.a2);
+    rightanswer(question2.a3);
+
+    function rightanswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            correct++;
+            alert("Correct! You got 1 point.")
+            q3();
+        })
+    }
+    
+    function wronganswer (answer) {
+        var a = document.createElement("button");
+        a.textContent = answer;
+        a.className = "btn btn-warning"
+        multipleChoice.appendChild(document.createElement("hr"));
+        multipleChoice.appendChild(a);
+        a.addEventListener("click", function() {
+            timer -= 5;
+            alert("Wrong! You've lost 5 seconds.");
+            q3();
+        })
+    }
 }
 
-
+function startTime() {
+    setInterval(function() {
+        if (timer <= 0) {
+            return;
+        } else {
+            timer--;
+            time.innerHTML = timer;
+        }
+    }, 1000)
+}
 // var startButton = document.querySelector("#welcome-button");
 // var welcomePage = document.querySelector("#welcome-page");
 // var questionPage = document.querySelector("#question-page");
