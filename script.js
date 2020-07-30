@@ -15,8 +15,8 @@ var correct = 0;
 var timer = 50;
 
 var highscores = {
-    name: ["John"],
-    score: [5]
+    name: ["John", "Taylor"],
+    score: [5, 4]
 }
 
 for (var i = 0; i < highscores.name.length; i++) {
@@ -34,6 +34,7 @@ for (var i = 0; i < highscores.name.length; i++) {
     lists.appendChild(badge);
     scoresColumn.appendChild(lists);
 }
+
 
 startButton.addEventListener("click", start);
 
@@ -182,12 +183,17 @@ function final() {
     score.innerHTML = correct;
 
     submitButton.addEventListener("click", function(event) {
-        event.preventDefault;
+        event.preventDefault();
+
+        var initals = nameInput.value;
+
         console.log(nameInput.value);
         console.log(correct);
 
+        highscores.name.push(initals);
+        highscores.score.push(correct);
 
-        console.log("freakingcrap");
+        console.log(highscores);
         alert("freakingcrap!");
     })
 }
