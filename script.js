@@ -7,6 +7,7 @@ var timeColumn = document.querySelector("#time-column");
 var time = document.querySelector("#timer");
 var finalPage = document.querySelector("#final-page");
 var score = document.querySelector("#score");
+var scoresColumn = document.querySelector("#scores-column");
 
 var correct = 0;
 var timer = 100;
@@ -17,6 +18,7 @@ function start() {
     welcomePage.style.display = "none";
     questionPage.style.display = "block";
     timeColumn.style.display = "block";
+    scoresColumn.style.display = "none";
     startTime();
     q1();
 }
@@ -25,6 +27,7 @@ function final() {
     questionPage.style.display = "none";
     timeColumn.style.display = "none";
     finalPage.style.display = "block";
+    scoresColumn.style.display = "block";
 
     score.innerHTML = correct;
 }
@@ -64,6 +67,30 @@ var question5 = {
     a3: "function = myFunction()"
 }
 
+function rightanswer (answer) {
+    var a = document.createElement("button");
+    a.textContent = answer;
+    a.className = "btn btn-warning"
+    multipleChoice.appendChild(document.createElement("hr"));
+    multipleChoice.appendChild(a);
+    a.addEventListener("click", function() {
+        correct++;
+        alert("Correct! You got 1 point.");
+    })
+}
+
+function wronganswer (answer) {
+    var a = document.createElement("button");
+    a.textContent = answer;
+    a.className = "btn btn-warning"
+    multipleChoice.appendChild(document.createElement("hr"));
+    multipleChoice.appendChild(a);
+    a.addEventListener("click", function() {
+        timer -= 5;
+        alert("Wrong! You've lost 5 seconds.");
+    })
+}
+
 function q1() {
     questionHeader.innerHTML = question1.q;
 
@@ -71,31 +98,11 @@ function q1() {
     wronganswer(question1.a2);
     wronganswer(question1.a3);
 
-    function rightanswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            correct++;
-            alert("Correct! You got 1 point.")
-            q2();
-        })
+    for (var i = 0; i < 3; i++) {
+    var next = multipleChoice.getElementsByClassName("btn")[i];
+    next.addEventListener("click", q2);
     }
     
-    function wronganswer (answer) {
-        var a = document.createElement("button");
-        a.textContent = answer;
-        a.className = "btn btn-warning"
-        multipleChoice.appendChild(document.createElement("hr"));
-        multipleChoice.appendChild(a);
-        a.addEventListener("click", function() {
-            timer -= 5;
-            alert("Wrong! You've lost 5 seconds.");
-            q2();
-        })
-    }
 }
 
 function q2() {
