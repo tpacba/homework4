@@ -11,42 +11,6 @@ var scoresColumn = document.querySelector("#scores-column");
 var nameInput = document.querySelector("#name-input");
 var submitButton = document.querySelector("#submit-button");
 
-var correct = 0;
-var timer = 50;
-
-var highscores = {
-    name: ["John", "Taylor"],
-    score: [5, 4]
-}
-
-for (var i = 0; i < highscores.name.length; i++) {
-    var lists = document.createElement("li");
-    lists.textContent = highscores.name[i];
-    lists.classList.add("list-group-item");
-    lists.classList.add("d-flex");
-    lists.classList.add("justify-content-between");
-    lists.classList.add("align-items-center");
-    var badge = document.createElement("span");
-    badge.textContent = highscores.score[i];
-    badge.classList.add("badge");
-    badge.classList.add("badge-primary");
-    badge.classList.add("badge-pill");
-    lists.appendChild(badge);
-    scoresColumn.appendChild(lists);
-}
-
-
-startButton.addEventListener("click", start);
-
-function start() {
-    welcomePage.style.display = "none";
-    questionPage.style.display = "block";
-    timeColumn.style.display = "block";
-    scoresColumn.style.display = "none";
-    startTime();
-    q1();
-}
-
 var question1 = {
     q: "What does HTML stand for?",
     a1: "Hyper Text Markup Language",
@@ -82,6 +46,47 @@ var question5 = {
     a3: "function = myFunction()"
 }
 
+var correct = 0;
+var timer = 50;
+
+var highscores = {
+    name: ["John", "Taylor"],
+    score: [5, 4]
+}
+
+function showscore() {
+    scoresColumn.innerHTML = ""
+    for (var i = 0; i < highscores.name.length; i++) {
+        var lists = document.createElement("li");
+        lists.textContent = highscores.name[i];
+        lists.classList.add("list-group-item");
+        lists.classList.add("d-flex");
+        lists.classList.add("justify-content-between");
+        lists.classList.add("align-items-center");
+        var badge = document.createElement("span");
+        badge.textContent = highscores.score[i];
+        badge.classList.add("badge");
+        badge.classList.add("badge-primary");
+        badge.classList.add("badge-pill");
+        lists.appendChild(badge);
+        scoresColumn.appendChild(lists);
+    }
+}
+
+showscore();
+startButton.addEventListener("click", start);
+
+function start() {
+    timer = 50;
+    welcomePage.style.display = "none";
+    questionPage.style.display = "block";
+    timeColumn.style.display = "block";
+    scoresColumn.style.display = "none";
+    document.getElementById("tag").style.display = "none";
+    startTime();
+    q1();
+}
+
 function rightanswer (answer) {
     var a = document.createElement("button");
     a.textContent = answer;
@@ -108,6 +113,7 @@ function wronganswer (answer) {
 
 function q1() {
     questionHeader.innerHTML = question1.q;
+    multipleChoice.innerHTML = "";
 
     rightanswer(question1.a1);
     wronganswer(question1.a2);
@@ -115,87 +121,87 @@ function q1() {
 
     for (var i = 0; i < 3; i++) {
     var next = multipleChoice.getElementsByClassName("btn")[i];
-    next.addEventListener("click", final);
+    next.addEventListener("click", q2);
     }
 }
 
-// function q2() {
-//     questionHeader.innerHTML = question2.q;
-//     multipleChoice.innerHTML = "";
+function q2() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
 
-//     wronganswer(question2.a1);
-//     wronganswer(question2.a2);
-//     rightanswer(question2.a3);
+    wronganswer(question2.a1);
+    wronganswer(question2.a2);
+    rightanswer(question2.a3);
 
-//     for (var i = 0; i < 3; i++) {
-//         var next = multipleChoice.getElementsByClassName("btn")[i];
-//         next.addEventListener("click", q3);
-//         }
-// }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", q3);
+        }
+}
 
-// function q3() {
-//     questionHeader.innerHTML = question2.q;
-//     multipleChoice.innerHTML = "";
+function q3() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
 
-//     rightanswer(question3.a1);
-//     wronganswer(question3.a2);
-//     wronganswer(question3.a3);
+    rightanswer(question3.a1);
+    wronganswer(question3.a2);
+    wronganswer(question3.a3);
 
-//     for (var i = 0; i < 3; i++) {
-//         var next = multipleChoice.getElementsByClassName("btn")[i];
-//         next.addEventListener("click", q4);
-//         }
-// }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", q4);
+        }
+}
 
-// function q4() {
-//     questionHeader.innerHTML = question2.q;
-//     multipleChoice.innerHTML = "";
+function q4() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
 
-//     wronganswer(question4.a1);
-//     wronganswer(question4.a2);
-//     rightanswer(question4.a3);
+    wronganswer(question4.a1);
+    wronganswer(question4.a2);
+    rightanswer(question4.a3);
 
-//     for (var i = 0; i < 3; i++) {
-//         var next = multipleChoice.getElementsByClassName("btn")[i];
-//         next.addEventListener("click", q5);
-//         }
-// }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", q5);
+        }
+}
 
-// function q5() {
-//     questionHeader.innerHTML = question2.q;
-//     multipleChoice.innerHTML = "";
+function q5() {
+    questionHeader.innerHTML = question2.q;
+    multipleChoice.innerHTML = "";
 
-//     wronganswer(question5.a1);
-//     rightanswer(question5.a2);
-//     wronganswer(question5.a3);
+    wronganswer(question5.a1);
+    rightanswer(question5.a2);
+    wronganswer(question5.a3);
 
-//     for (var i = 0; i < 3; i++) {
-//         var next = multipleChoice.getElementsByClassName("btn")[i];
-//         next.addEventListener("click", final);
-//         }
-// }
+    for (var i = 0; i < 3; i++) {
+        var next = multipleChoice.getElementsByClassName("btn")[i];
+        next.addEventListener("click", final);
+        }
+}
 
 function final() {
+    timer = 0;
     questionPage.style.display = "none";
     timeColumn.style.display = "none";
     finalPage.style.display = "block";
     scoresColumn.style.display = "block";
+    document.getElementById("tag").style.display = "block";
     score.innerHTML = correct;
-
-    submitButton.addEventListener("click", function(event) {
+    
+    
+    submitButton.onclick = function(event) {
         event.preventDefault();
 
-        var initals = nameInput.value;
-
-        console.log(nameInput.value);
-        console.log(correct);
-
+        var initals = String(nameInput.value);
+        
         highscores.name.push(initals);
         highscores.score.push(correct);
 
-        console.log(highscores);
-        alert("freakingcrap!");
-    })
+        showscore();
+        submitButton.disabled = true;
+    }
 }
 
 function startTime() {
