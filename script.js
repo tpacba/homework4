@@ -54,8 +54,22 @@ var highscores = {
     score: [5, 4]
 }
 
+var newname = JSON.parse(localStorage.getItem("names"));
+console.log(newname);
+var newscore = JSON.parse(localStorage.getItem("score"));
+console.log(newscore);
+
+if (newname !== null && newscore !== null) {
+    highscores.name = newname;
+    highscores.score = newscore;
+}
+
+console.log(highscores.name);
+console.log(highscores.score);
+
 function showscore() {
     scoresColumn.innerHTML = ""
+
     for (var i = 0; i < highscores.name.length; i++) {
         var lists = document.createElement("li");
         lists.textContent = highscores.name[i];
@@ -195,11 +209,13 @@ function final() {
         event.preventDefault();
 
         var initals = String(nameInput.value);
-        
+
         highscores.name.push(initals);
         highscores.score.push(correct);
 
         showscore();
+        localStorage.setItem("names", JSON.stringify(highscores.name));
+        localStorage.setItem("score", JSON.stringify(highscores.score));
         submitButton.disabled = true;
     }
 }
