@@ -173,7 +173,7 @@ function q2() {
 
 // Third question, on click of any button run next function
 function q3() {
-    questionHeader.innerHTML = question2.q;
+    questionHeader.innerHTML = question3.q;
     multipleChoice.innerHTML = "";
 
     rightanswer(question3.a1);
@@ -188,7 +188,7 @@ function q3() {
 
 // Fourth question, on click of any button run next function
 function q4() {
-    questionHeader.innerHTML = question2.q;
+    questionHeader.innerHTML = question4.q;
     multipleChoice.innerHTML = "";
 
     wronganswer(question4.a1);
@@ -203,7 +203,7 @@ function q4() {
 
 // Fifth Second question, on click of any button run next function to final page
 function q5() {
-    questionHeader.innerHTML = question2.q;
+    questionHeader.innerHTML = question5.q;
     multipleChoice.innerHTML = "";
 
     wronganswer(question5.a1);
