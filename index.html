@@ -8,6 +8,7 @@
     <title>Code Quiz</title>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGphmgJYH43yvmTcXKjwTO6yG7O9y9QkVUIQ&usqp=CAU" width="30" height="30" class="d-inline-block align-top rounded" alt="" loading="lazy">
@@ -16,23 +17,39 @@
     </nav>
     <div class="container">
         <div class="row">
-        <div class="col" >
+
+        <!-- High Scores column -->
+        <div class="col-md col-sm-12" >
+            <!-- Had to create another id for heading without messing with the list -->
             <h3 id="tag">High Scores</h3>
             <ul class="list-group" id="scores-column">
                 
             </ul>
         </div>
-        <div class="col-6" id="welcome-page">
+
+        <!-- Welcom Page column -->
+        <div class="col-md-6 col-sm-12" id="welcome-page">
             <h3 class="font-weight-light">Welcome to</h3>
             <h1>Code Quiz</h1>
             <h4 class="font-weight-light">Click the button below to start</h4>
             <button type="button" class="btn btn-lg btn-block btn-warning" id="start-button">Begin Quiz</button>
+            <br>
+            <p>Instructions:</p>
+            <ul>
+                <li>You have five questions to answer.</li>
+                <li>You have 50 seconds to complete the quiz.</li>
+                <li>You lose five seconds for every wrong answer.</li>
+            </ul>
         </div>
-        <div class="col-6" id="question-page">
+
+        <!-- Question Page (within same column) -->
+        <div class="col-md-6 col-sm-12" id="question-page">
             <h2 class="font-weight-light" id="question-header">Question </h2>
             <div class="font-weight-bold" id="multiple-choice"></div>
         </div>
-        <div class="col-6" id="final-page">
+
+        <!-- Final Page (within same column) -->
+        <div class="col-md-6 col-sm-12" id="final-page">
             <h3>You scored <span id="score"></span> points.</h3>
             <p>Enter your initials below to record your high score!</p>
             <form>
@@ -45,18 +62,18 @@
                     </div>
                 </div>
             </form>
+            <br>
+            <p>Click on the navigation brand or refresh the site to play again!</p>
         </div>
-        <div class="col">
+
+        <!-- Timer column -->
+        <div class="col-md col-sm-12">
             <p id="time-column">
                 You have <span id="timer">50</span> seconds left.
             </p>
         </div>
         </div>
     </div>
-
-
-
-
 
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

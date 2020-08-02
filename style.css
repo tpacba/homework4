@@ -1,19 +1,35 @@
+/* Add some padding from navbar */
 .container {
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
+/* Display scores column in the beginning but js hides it during questions */
+/* Add some padding to make space from other containers */
+#scores-column {
+    display: block;
+    padding-bottom: 30px;
+}
+
+/* Display welcome page in the beginning but js hides it during questions */
 #welcome-page {
     display: block;
 }
 
+/* Hide question page in the beginning but js shows it during questions */
+/* Add some padding to make space from other containers */
 #question-page {
     display: none;
+    padding-bottom: 30px;
 }
 
+/* Hide final page in the beginning but js shows it after questions */
+/* Add some padding to make space from other containers */
 #final-page {
     display: none;
+    padding-bottom: 300px;
 }
 
+/* Hide time column in the beginning but js shows it during questions */
 #time-column {
     display: none;
 }

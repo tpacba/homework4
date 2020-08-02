@@ -1,3 +1,5 @@
+// Query selector variables
+var nav = document.querySelector(".navbar-brand");
 var welcomePage = document.querySelector("#welcome-page");
 var questionPage = document.querySelector("#question-page");
 var startButton = document.querySelector("#start-button");
@@ -11,6 +13,14 @@ var scoresColumn = document.querySelector("#scores-column");
 var nameInput = document.querySelector("#name-input");
 var submitButton = document.querySelector("#submit-button");
 
+// Refresh the page when navbar is clicked
+nav.onclick = function(event) {
+    event.preventDefault;
+    window.location.reload(false); 
+
+}
+
+// Store the questions in objects
 var question1 = {
     q: "What does HTML stand for?",
     a1: "Hyper Text Markup Language",
@@ -46,27 +56,29 @@ var question5 = {
     a3: "function = myFunction()"
 }
 
+// Initial universal variables
 var correct = 0;
 var timer = 50;
 
+// Fake high scores to start with
 var highscores = {
     name: ["John", "Taylor"],
     score: [5, 4]
 }
 
+// Grab localstorage to display for high scores
 var newname = JSON.parse(localStorage.getItem("names"));
 console.log(newname);
 var newscore = JSON.parse(localStorage.getItem("score"));
 console.log(newscore);
 
+// If local storage is empty, refer back to the fake high scores
 if (newname !== null && newscore !== null) {
     highscores.name = newname;
     highscores.score = newscore;
 }
 
-console.log(highscores.name);
-console.log(highscores.score);
-
+// Append high scores list grabbed from local storage into scores column
 function showscore() {
     scoresColumn.innerHTML = ""
 
@@ -87,9 +99,11 @@ function showscore() {
     }
 }
 
+// Run function to append high scores
 showscore();
-startButton.addEventListener("click", start);
 
+// Hide welcome page, show question page, start timer
+startButton.addEventListener("click", start);
 function start() {
     timer = 50;
     welcomePage.style.display = "none";
@@ -101,6 +115,7 @@ function start() {
     q1();
 }
 
+// Create button element for correct answer, alert and add to correct variable
 function rightanswer (answer) {
     var a = document.createElement("button");
     a.textContent = answer;
@@ -113,6 +128,7 @@ function rightanswer (answer) {
     })
 }
 
+// Create button element for wrong answer, alert and subtract from timer
 function wronganswer (answer) {
     var a = document.createElement("button");
     a.textContent = answer;
@@ -125,6 +141,7 @@ function wronganswer (answer) {
     })
 }
 
+// First question, on click of any button run next function
 function q1() {
     questionHeader.innerHTML = question1.q;
     multipleChoice.innerHTML = "";
@@ -139,6 +156,7 @@ function q1() {
     }
 }
 
+// Second question, on click of any button run next function
 function q2() {
     questionHeader.innerHTML = question2.q;
     multipleChoice.innerHTML = "";
@@ -153,6 +171,7 @@ function q2() {
         }
 }
 
+// Third question, on click of any button run next function
 function q3() {
     questionHeader.innerHTML = question2.q;
     multipleChoice.innerHTML = "";
@@ -167,6 +186,7 @@ function q3() {
         }
 }
 
+// Fourth question, on click of any button run next function
 function q4() {
     questionHeader.innerHTML = question2.q;
     multipleChoice.innerHTML = "";
@@ -181,6 +201,7 @@ function q4() {
         }
 }
 
+// Fifth Second question, on click of any button run next function to final page
 function q5() {
     questionHeader.innerHTML = question2.q;
     multipleChoice.innerHTML = "";
@@ -195,6 +216,7 @@ function q5() {
         }
 }
 
+// Hide question page, show final page
 function final() {
     timer = 0;
     questionPage.style.display = "none";
@@ -204,7 +226,7 @@ function final() {
     document.getElementById("tag").style.display = "block";
     score.innerHTML = correct;
     
-    
+    // Submit input into local storage
     submitButton.onclick = function(event) {
         event.preventDefault();
 
@@ -220,6 +242,7 @@ function final() {
     }
 }
 
+// Timer
 function startTime() {
     setInterval(function() {
         if (timer <= 0) {
